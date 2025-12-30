@@ -298,9 +298,22 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 const snapshot = await db.collection('properties').get();
                 const fbData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                if (fbData.length > 0) list = fbData;
+
+                if (fbData.length > 0) {
+                    list = fbData;
+                } else {
+                    // AUTO-SEED: Si está vacío, subimos el ejemplo automáticamente
+                    console.log("Detectada base de datos vacía, subiendo ejemplo...");
+                    for (const item of DATABASE) {
+                        await db.collection('properties').add(item);
+                    }
+                    // Recargar despues de subir
+                    const newSnapshot = await db.collection('properties').get();
+                    list = newSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                }
             } catch (e) {
                 console.error("Error al cargar de Firebase:", e);
+                // Si falla (ej: reglas bloqueadas), usamos los datos locales para que la web no se rompa
             }
         }
 
