@@ -255,12 +255,12 @@
     <div class="main-container">
         <!-- Breadcrumb & Minimalist Header -->
         <div class="detail-header">
-            <div
+            <div class="reveal"
                 style="margin-bottom: 12px; font-size: 0.75rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
                 INICIO / LEÓN / <span style="color: var(--primary);">PONFERRADA</span>
             </div>
 
-            <div class="badge-row">
+            <div class="badge-row reveal reveal-delay-1">
                 <a href="https://www.altamirainmuebles.com/venta-de-piso/leon/ponferrada/segunda-mano/9206_0124_PE0001/374613/1"
                     target="_blank" class="badge-item badge-altamira" style="text-decoration: none; cursor: pointer;">
                     Altamira <i class="fa-solid fa-arrow-up-right-from-square"
@@ -269,7 +269,7 @@
                 <div class="badge-item badge-remate">Cesión de Remate</div>
             </div>
 
-            <h1
+            <h1 class="reveal reveal-delay-2"
                 style="font-size: 2rem; font-weight: 800; color: var(--secondary); margin-bottom: 8px; line-height: 1.2;">
                 Piso en venta en Batalla Lepanto, Nº10
             </h1>
@@ -383,6 +383,37 @@
                 </div>
             </div>
         </div>
+
+        <!-- Similar Assets Section -->
+        <section class="similar-assets reveal">
+            <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--secondary); margin-bottom: 10px;">Otras
+                oportunidades detectadas</h2>
+            <p style="color: #64748b; margin-bottom: 30px;">Activos con perfil de inversión similar en carteras
+                bancarias.</p>
+
+            <div class="similar-grid">
+                <!-- Card Madrid -->
+                <div class="property-card reveal">
+                    <div class="card-image" style="height: 200px;">
+                        <img src="amor-hermoso-exterior.jpg" alt="Madrid"
+                            style="width:100%; height:100%; object-fit:cover;">
+                        <div class="bank-tag altamira">Altamira</div>
+                    </div>
+                    <div class="card-content"
+                        style="padding: 20px; border: 1px solid var(--border-color); border-top:none; border-radius: 0 0 12px 12px;">
+                        <h3 style="font-size: 1rem; font-weight: 700; color: var(--secondary); margin-bottom: 10px;">C/
+                            Amor Hermoso 5 (Madrid)</h3>
+                        <div style="font-size: 1.2rem; font-weight: 800; color: var(--primary); margin-bottom: 10px;">
+                            230.000 €</div>
+                        <div style="font-size: 0.8rem; color: #64748b; margin-bottom: 15px;"><i
+                                class="fa-solid fa-map-pin"></i> Madrid (Usera)</div>
+                        <a href="propiedad-amor-hermoso.html" class="btn-primary-pro"
+                            style="padding: 10px; font-size: 0.8rem; text-decoration:none;">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
     </div>
 
     <!-- Modal refined -->
@@ -467,6 +498,19 @@
             document.querySelectorAll('.thumb-item').forEach(item => item.classList.remove('active'));
             thumb.classList.add('active');
         }
+
+        // --- SCROLL REVEAL LOGIC ---
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+        });
 
         document.getElementById('leadForm').addEventListener('submit', (e) => {
             e.preventDefault();

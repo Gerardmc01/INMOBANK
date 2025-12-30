@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const discount = Math.round(((item.oldPrice - item.price) / item.oldPrice) * 100);
 
             const card = document.createElement('div');
-            card.className = 'property-card';
+            card.className = 'property-card reveal';
 
             // Si el link es a una página interna (.html), hacemos toda la caja clickeable
             const isInternal = item.link.endsWith('.html');
@@ -343,5 +343,26 @@ document.addEventListener('DOMContentLoaded', () => {
         render(list);
     }
 
+    // --- SCROLL REVEAL LOGIC ---
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    function initReveals() {
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    }
+
     init();
+    initReveals();
+
+    // Re-vincular reveales después de cada render dinámico
+    const originalRender = render;
+    render = function (data) {
+        originalRender(data);
+        setTimeout(initReveals, 100);
+    };
 });
