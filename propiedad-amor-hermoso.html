@@ -14,39 +14,49 @@
             --primary-dark: #001f42;
             --accent-red: #dc2626;
             --bg-soft: #f8fafc;
+            --border-color: #eaeef4;
         }
 
         body {
             background-color: #fff;
+            color: #1e293b;
+            font-size: 15px;
+        }
+
+        .main-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 32px 20px;
         }
 
         .detail-header {
-            margin-bottom: 32px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 24px;
         }
 
         .badge-row {
             display: flex;
-            gap: 12px;
-            margin-bottom: 16px;
+            gap: 10px;
+            margin-bottom: 12px;
         }
 
         .badge-item {
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
 
         .badge-altamira {
-            background: white;
+            background: #f1f5f9;
+            color: #475569;
             border: 1px solid #e2e8f0;
-            color: var(--secondary);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         .badge-remate {
@@ -54,338 +64,308 @@
             color: var(--accent-red);
         }
 
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 40px;
+        }
+
+        .image-container {
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+            aspect-ratio: 16 / 10;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
         .price-card-pro {
             background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 20px;
-            padding: 32px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            position: sticky;
+            top: 100px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
         .feature-grid-pro {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-bottom: 40px;
+            gap: 12px;
+            margin-bottom: 32px;
         }
 
         .feature-box {
-            padding: 24px;
+            padding: 16px;
             background: var(--bg-soft);
-            border-radius: 16px;
+            border-radius: 8px;
             text-align: center;
-            border: 1px solid transparent;
-            transition: all 0.3s ease;
+            border: 1px solid #f1f5f9;
         }
 
-        .feature-box:hover {
-            border-color: var(--primary);
-            background: white;
-            transform: translateY(-2px);
+        .feature-box i {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .feature-box .val {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .feature-box .lbl {
+            font-size: 0.7rem;
+            color: #64748b;
+            font-weight: 600;
+            text-transform: uppercase;
         }
 
         .btn-primary-pro {
             width: 100%;
-            padding: 18px;
+            padding: 14px;
             background: var(--primary);
             color: white;
             border: none;
-            border-radius: 12px;
+            border-radius: 8px;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            transition: all 0.3s ease;
+            gap: 8px;
+            transition: all 0.2s;
         }
 
         .btn-primary-pro:hover {
             background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 43, 92, 0.25);
+        }
+
+        .trust-list {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
         }
 
         .trust-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 0.85rem;
+            gap: 10px;
+            font-size: 0.8rem;
             color: #64748b;
-            margin-top: 16px;
+            margin-bottom: 12px;
+        }
+
+        .trust-item i {
+            color: #10b981;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 900px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .price-card-pro {
+                position: static;
+                margin-top: 0;
+            }
         }
     </style>
 </head>
 
 <body>
-    <!-- Header -->
-    <nav class="navbar" style="border-bottom: 1px solid #e2e8f0;">
+    <!-- Header Navigation -->
+    <nav class="navbar" style="border-bottom: 1px solid var(--border-color); height: 60px;">
         <div class="container flex items-center justify-between" style="height: 100%;">
             <a href="index.html" class="brand-wrapper">
-                <div class="brand-icon">
+                <div class="brand-icon" style="width: 32px; height: 32px; font-size: 0.9rem;">
                     <i class="fa-solid fa-building-columns"></i>
                 </div>
-                <div class="brand-text">
+                <div class="brand-text" style="font-size: 1.1rem;">
                     INMO<span>BANK</span>
                 </div>
             </a>
-            <div class="nav-links hidden-mobile">
-                <a href="index.html" style="font-weight: 600; color: var(--text-main);"><i
-                        class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Volver al listado</a>
-            </div>
+            <a href="index.html"
+                style="font-size: 0.85rem; font-weight: 600; color: #64748b; text-decoration: none; display: flex; align-items: center; gap: 6px;">
+                <i class="fa-solid fa-arrow-left"></i> Volver al listado
+            </a>
         </div>
     </nav>
 
-    <main class="container" style="max-width: 1240px; padding: 40px 24px;">
-
-        <!-- Breadcrumb & Header ABOVE the photo -->
+    <div class="main-container">
+        <!-- Breadcrumb & Minimalist Header -->
         <div class="detail-header">
-            <div style="margin-bottom: 16px; font-size: 0.85rem; color: #94a3b8; font-weight: 500;">
-                <a href="index.html" style="color: inherit; text-decoration: none;">Inicio</a>
-                <span style="margin: 0 8px;">/</span>
-                <a href="index.html" style="color: inherit; text-decoration: none;">Madrid</a>
-                <span style="margin: 0 8px;">/</span>
-                <span style="color: var(--text-main);">Usera</span>
+            <div
+                style="margin-bottom: 12px; font-size: 0.75rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
+                INICIO / MADRID / <span style="color: var(--primary);">USERA</span>
             </div>
 
             <div class="badge-row">
-                <div class="badge-item badge-altamira">
-                    <span style="color: #ef4444; font-size: 0.6rem;">●</span> ALTAMIRA
-                </div>
+                <div class="badge-item badge-altamira">Altamira</div>
                 <div class="badge-item badge-remate">Cesión de Remate</div>
             </div>
 
             <h1
-                style="font-size: 2.75rem; font-weight: 800; color: var(--secondary); margin-bottom: 12px; letter-spacing: -0.5px;">
+                style="font-size: 2rem; font-weight: 800; color: var(--secondary); margin-bottom: 8px; line-height: 1.2;">
                 Piso en venta en C/ Amor Hermoso, Nº5
             </h1>
-            <p
-                style="font-size: 1.25rem; color: #64748b; display: flex; align-items: center; gap: 8px; font-weight: 500;">
-                <i class="fa-solid fa-location-dot" style="color: var(--primary);"></i> Madrid, Madrid (28026)
+            <p style="font-size: 1rem; color: #64748b; display: flex; align-items: center; gap: 6px;">
+                <i class="fa-solid fa-map-marker-alt" style="color: var(--primary);"></i> Madrid (28026)
             </p>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 400px; gap: 48px;">
-
-            <!-- Left Column: Media & Info -->
+        <div class="grid-layout">
+            <!-- Left: Content -->
             <div>
-                <!-- Main Photo BELOW the header -->
-                <div
-                    style="border-radius: 24px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);">
-                    <img src="amor-hermoso-exterior.jpg" alt="Fachada Amor Hermoso 5"
-                        style="width: 100%; height: auto; display: block; object-fit: cover;">
+                <div class="image-container">
+                    <img src="amor-hermoso-exterior.jpg" alt="Piso Amor Hermoso">
                 </div>
 
-                <!-- Feature Grid Pro -->
                 <div class="feature-grid-pro">
                     <div class="feature-box">
-                        <i class="fa-solid fa-ruler-combined"
-                            style="font-size: 1.5rem; color: var(--primary); margin-bottom: 12px; display: block;"></i>
-                        <div style="font-size: 1.4rem; font-weight: 800; color: var(--text-main);">102 m²</div>
-                        <div style="font-size: 0.85rem; color: #64748b; font-weight: 600; text-transform: uppercase;">
-                            Superficie</div>
+                        <i class="fa-solid fa-maximize"></i>
+                        <div class="val">102 m²</div>
+                        <div class="lbl">Superficie</div>
                     </div>
                     <div class="feature-box">
-                        <i class="fa-solid fa-bed"
-                            style="font-size: 1.5rem; color: var(--primary); margin-bottom: 12px; display: block;"></i>
-                        <div style="font-size: 1.4rem; font-weight: 800; color: var(--text-main);">4</div>
-                        <div style="font-size: 0.85rem; color: #64748b; font-weight: 600; text-transform: uppercase;">
-                            Habitaciones</div>
+                        <i class="fa-solid fa-bed"></i>
+                        <div class="val">4</div>
+                        <div class="lbl">Habst</div>
                     </div>
                     <div class="feature-box">
-                        <i class="fa-solid fa-bath"
-                            style="font-size: 1.5rem; color: var(--primary); margin-bottom: 12px; display: block;"></i>
-                        <div style="font-size: 1.4rem; font-weight: 800; color: var(--text-main);">2</div>
-                        <div style="font-size: 0.85rem; color: #64748b; font-weight: 600; text-transform: uppercase;">
-                            Baños</div>
+                        <i class="fa-solid fa-bath"></i>
+                        <div class="val">2</div>
+                        <div class="lbl">Baños</div>
                     </div>
                 </div>
 
-                <!-- Description -->
-                <div style="margin-bottom: 48px;">
-                    <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 24px; color: var(--secondary);">
-                        Descripción de la propiedad</h2>
-                    <div style="font-size: 1.1rem; line-height: 1.8; color: #334155;">
-                        <p style="margin-bottom: 20px;">
-                            Exclusiva oportunidad de inversión en el distrito de Usera. Presentamos esta vivienda de
-                            <strong>102 m²</strong> ubicada en la <strong>Calle Amor Hermoso, 5</strong>. El activo se
-                            comercializa mediante la modalidad de <strong>Cesión de Remate</strong>, ofreciendo un valor
-                            significativamente inferior al precio de mercado.
-                        </p>
-                        <p>
-                            La propiedad cuenta con una distribución óptima, destacando sus 4 amplios dormitorios y 2
-                            cuartos de baño. Es ideal tanto para inversores patrimonialistas que buscan alta
-                            rentabilidad en alquiler, como para particulares que deseen adquirir su vivienda habitual a
-                            un precio excepcional en una zona en plena revalorización.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Map Section -->
-                <div style="margin-bottom: 48px;">
-                    <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 24px; color: var(--secondary);">
-                        Ubicación exacta</h2>
-                    <div style="border-radius: 20px; overflow: hidden; border: 1px solid #e2e8f0;">
-                        <img src="amor-hermoso-mapa.jpg" alt="Mapa Ubicación" style="width: 100%; display: block;">
-                    </div>
-                    <p style="margin-top: 16px; color: #64748b; font-size: 0.95rem; font-style: italic;">
-                        <i class="fa-solid fa-circle-info" style="margin-right: 6px;"></i> Zona residencial consolidada
-                        con todos los servicios: Metro Usera, Centro Comercial Plaza Río 2 y acceso directo a M-30.
+                <div style="margin-bottom: 40px;">
+                    <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 16px;">Acerca de este activo</h2>
+                    <p style="line-height: 1.6; color: #475569; margin-bottom: 16px;">
+                        Oportunidad de inversión estratégica en el corazón de Usera. Este activo de 102 m² se
+                        comercializa mediante <strong>Cesión de Remate</strong>, lo que permite una adquisición muy por
+                        debajo del valor de tasación actual.
                     </p>
+                    <p style="line-height: 1.6; color: #475569;">
+                        La vivienda destaca por su amplitud y luminosidad. Situada en una zona con alta demanda de
+                        alquiler, lo que garantiza una rentabilidad bruta excelente para inversores.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 16px;">Ubicación estratégica</h2>
+                    <div style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color);">
+                        <img src="amor-hermoso-mapa.jpg" alt="Ubicación Mapa" style="width: 100%; display: block;">
+                    </div>
                 </div>
             </div>
 
-            <!-- Right Column: Sticky Pro Card -->
-            <div>
-                <div style="position: sticky; top: 120px;">
-                    <div class="price-card-pro">
-                        <div
-                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px;">
-                            <div>
-                                <span
-                                    style="font-size: 0.85rem; color: #64748b; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Precio
-                                    Liquidación</span>
-                                <div
-                                    style="font-size: 2.75rem; font-weight: 800; color: var(--secondary); margin-top: 4px;">
-                                    230.000 €</div>
-                            </div>
-                            <div
-                                style="background: #ecfdf5; color: #059669; padding: 8px 12px; border-radius: 8px; font-weight: 700; font-size: 0.9rem;">
-                                -19% GASTO
-                            </div>
-                        </div>
-
-                        <div style="margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid #f1f5f9;">
-                            <div
-                                style="display: flex; justify-content: space-between; font-size: 0.95rem; color: #94a3b8; margin-bottom: 8px;">
-                                <span>Precio Original</span>
-                                <span style="text-decoration: line-through;">285.000€</span>
-                            </div>
-                            <div
-                                style="display: flex; justify-content: space-between; font-size: 0.95rem; color: #64748b; font-weight: 600;">
-                                <span>Ahorro Directo</span>
-                                <span style="color: var(--accent-red);">55.000€</span>
-                            </div>
-                        </div>
-
-                        <div style="margin-bottom: 32px;">
-                            <button onclick="document.getElementById('contactModal').style.display='flex'"
-                                class="btn-primary-pro">
-                                <i class="fa-solid fa-paper-plane"></i> Solicitar Dossier
-                            </button>
-                            <p style="text-align: center; margin-top: 16px; font-size: 0.85rem; color: #94a3b8;">
-                                Respuesta media: <strong>
-                                    < 1 hora</strong>
-                            </p>
-                        </div>
-
-                        <div style="background: #f8fafc; border-radius: 12px; padding: 20px;">
-                            <div class="trust-item">
-                                <i class="fa-solid fa-shield-check" style="color: #10b981;"></i>
-                                <span>Activo verificado por <strong>Altamira</strong></span>
-                            </div>
-                            <div class="trust-item">
-                                <i class="fa-solid fa-file-invoice-dollar" style="color: #10b981;"></i>
-                                <span>Sin comisiones de agencia</span>
-                            </div>
-                            <div class="trust-item">
-                                <i class="fa-solid fa-headset" style="color: #10b981;"></i>
-                                <span>Asignación de gestor personal</span>
-                            </div>
+            <!-- Right: Sticky Sidebar -->
+            <div class="sidebar">
+                <div class="price-card-pro">
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-size: 0.75rem; color: #94a3b8; font-weight: 700; text-transform: uppercase;">
+                            Precio de Liquidación</div>
+                        <div style="display: flex; align-items: baseline; gap: 8px;">
+                            <span style="font-size: 2.2rem; font-weight: 800; color: var(--secondary);">230.000 €</span>
+                            <span
+                                style="background: #ecfdf5; color: #059669; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">-19%</span>
                         </div>
                     </div>
 
-                    <!-- Shared Link Pro -->
-                    <div
-                        style="margin-top: 24px; padding: 0 16px; display: flex; align-items: center; justify-content: space-between; color: #94a3b8; font-size: 0.9rem;">
-                        <span>Ref: 9212_0163_PE0001</span>
-                        <div style="display: flex; gap: 16px;">
-                            <i class="fa-solid fa-share-nodes" style="cursor: pointer;"></i>
-                            <i class="fa-regular fa-heart" style="cursor: pointer;"></i>
+                    <div style="margin-bottom: 24px; padding: 12px; background: #f8fafc; border-radius: 8px;">
+                        <div
+                            style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 4px;">
+                            <span style="color: #94a3b8;">Precio Mercado</span>
+                            <span style="text-decoration: line-through; color: #94a3b8;">285.000€</span>
                         </div>
+                        <div
+                            style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700;">
+                            <span style="color: #64748b;">Ahorro Directo</span>
+                            <span style="color: var(--accent-red);">55.000€</span>
+                        </div>
+                    </div>
+
+                    <button onclick="document.getElementById('contactModal').style.display='flex'"
+                        class="btn-primary-pro">
+                        <i class="fa-solid fa-paper-plane"></i> Solicitar Dossier
+                    </button>
+
+                    <div class="trust-list">
+                        <div class="trust-item">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>Activo Verificado (Altamira)</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>Sin Honorarios de Agencia</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>Gestión Directa Bancaria</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 20px; font-size: 0.7rem; color: #cbd5e1; text-align: center;">
+                        REF: 9212_0163_PE0001
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 
-    <!-- Modal Pro Styling -->
-    <div id="contactModal" class="lead-modal-overlay"
-        style="display: none; align-items: center; justify-content: center; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,27,58,0.8); z-index: 1000; backdrop-filter: blur(4px);">
+    <!-- Modal refined -->
+    <div id="contactModal"
+        style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 2000; align-items: center; justify-content: center; padding: 20px;">
         <div
-            style="background: white; width: 450px; border-radius: 24px; padding: 40px; position: relative; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
+            style="background: white; width: 100%; max-width: 400px; border-radius: 12px; padding: 32px; position: relative;">
             <button onclick="document.getElementById('contactModal').style.display='none'"
-                style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #94a3b8;">&times;</button>
-            <div style="text-align: center; margin-bottom: 32px;">
-                <div
-                    style="width: 64px; height: 64px; background: var(--bg-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
-                    <i class="fa-solid fa-envelope-open-text" style="font-size: 1.5rem; color: var(--primary);"></i>
-                </div>
-                <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--secondary);">Solicita información</h2>
-                <p style="color: #64748b; font-size: 0.95rem; margin-top: 8px;">Un gestor de INMOBANK te contactará para
-                    facilitarte el dossier completo del activo.</p>
+                style="position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #94a3b8;">&times;</button>
+
+            <div style="text-align: center; margin-bottom: 24px;">
+                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--secondary);">Información del Activo</h3>
+                <p style="font-size: 0.85rem; color: #64748b; margin-top: 4px;">Completa el formulario para recibir el
+                    dossier técnico.</p>
             </div>
 
             <form id="leadForm">
-                <div style="margin-bottom: 20px;">
-                    <label
-                        style="display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 8px; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.5px;">Nombre
-                        y Apellidos</label>
-                    <input type="text"
-                        style="width: 100%; padding: 14px; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 1rem;"
-                        required placeholder="Ej: Juan García">
-                </div>
-                <div style="margin-bottom: 20px;">
-                    <label
-                        style="display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 8px; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.5px;">Teléfono
-                        de contacto</label>
-                    <input type="tel"
-                        style="width: 100%; padding: 14px; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 1rem;"
-                        required placeholder="+34 600 000 000">
-                </div>
-                <div style="margin-bottom: 32px;">
-                    <label
-                        style="display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 8px; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.5px;">Email
-                        profesional</label>
-                    <input type="email"
-                        style="width: 100%; padding: 14px; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 1rem;"
-                        required placeholder="juan@ejemplo.com">
-                </div>
-                <button type="submit" class="btn-primary-pro">
-                    Enviar solicitud segura
-                </button>
+                <input type="text" placeholder="Nombre completo"
+                    style="width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 6px; margin-bottom: 12px;"
+                    required>
+                <input type="tel" placeholder="Teléfono"
+                    style="width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 6px; margin-bottom: 12px;"
+                    required>
+                <input type="email" placeholder="Email"
+                    style="width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 6px; margin-bottom: 20px;"
+                    required>
+                <button type="submit" class="btn-primary-pro">Solicitar Información</button>
             </form>
         </div>
     </div>
 
-    <!-- Footer Pro -->
     <footer
-        style="background: var(--secondary); color: white; padding: 60px 0; margin-top: 80px; border-top: 1px solid rgba(255,255,255,0.1);">
-        <div class="container" style="text-align: center;">
-            <div style="margin-bottom: 24px;">
-                <div class="brand-text" style="color: white; font-size: 1.5rem; justify-content: center;">
-                    INMO<span>BANK</span></div>
-            </div>
-            <p style="color: rgba(255,255,255,0.4); font-size: 0.85rem; max-width: 600px; margin: 0 auto;">
-                INMOBANK es una marca distribuida de activos bancarios. © 2025 Todos los derechos reservados. Madrid,
-                España.
-            </p>
-        </div>
+        style="background: var(--secondary); padding: 40px 20px; color: #94a3b8; font-size: 0.8rem; text-align: center; border-top: 1px solid #1e293b;">
+        <div class="brand-text" style="color: white; font-size: 1rem; margin-bottom: 12px; justify-content: center;">
+            INMO<span>BANK</span></div>
+        <p>© 2025 INMOBANK. Central de Activos Bancarios. Todos los derechos reservados.</p>
     </footer>
 
     <script>
         document.getElementById('leadForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            const btn = e.target.querySelector('button');
-            btn.innerHTML = '<i class="fa-solid fa-check"></i> Solicitud Enviada';
-            btn.style.background = '#059669';
-            setTimeout(() => {
-                document.getElementById('contactModal').style.display = 'none';
-                alert('Gracias por tu interés. Un gestor especializado te contactará en menos de una hora.');
-                btn.innerHTML = 'Enviar solicitud segura';
-                btn.style.background = 'var(--primary)';
-            }, 1500);
+            alert('¡Solicitud recibida! Te enviaremos el dossier en breve.');
+            document.getElementById('contactModal').style.display = 'none';
         });
     </script>
 </body>
