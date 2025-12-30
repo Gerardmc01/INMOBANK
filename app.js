@@ -51,6 +51,21 @@ document.addEventListener('DOMContentLoaded', () => {
             // Enlace a la ficha completa
             link: 'propiedad-amor-hermoso.html',
             type: 'vivienda'
+        },
+        {
+            id: 'altamira-ponferrada-batalla',
+            bank: 'Altamira',
+            bankClass: 'altamira',
+            title: 'Cesión de Remate: Batalla Lepanto 10 (Ponferrada)',
+            desc: 'Vivienda de 103m² en Ponferrada (León). Oportunidad de inversión mediante Cesión de Remate. Activo bancario verificado.',
+            location: 'Ponferrada (León)',
+            price: 50000,
+            oldPrice: 0,
+            features: ['103', 'Var', 'Var'],
+            tags: ['Altamira', 'Cesión Remate'],
+            img: 'batalla-lepanto-exterior.jpg',
+            link: 'propiedad-batalla-lepanto.html',
+            type: 'vivienda'
         }
     ];
 

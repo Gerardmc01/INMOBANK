@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cesión de Remate: Piso 103m² en Batalla Lepanto 10, Ponferrada (León) | INMOBANK</title>
+    <meta name="description"
+        content="Oportunidad de inversión en Ponferrada. Vivienda de 103m² en Batalla Lepanto via Cesión de Remate. Activo bancario Altamira verificado.">
+    <meta name="keywords"
+        content="cesión de remate, ponferrada león, inversion inmobiliaria, activos bancarios león, batalla lepanto 10">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Inversión en Ponferrada: Piso en Batalla Lepanto 10 | INMOBANK">
+    <meta property="og:description"
+        content="Vivienda de 103m² en Ponferrada, León. Alta rentabilidad estimada. Gestionado por Altamira.">
+    <meta property="og:image" content="batalla-lepanto-exterior.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Piso en Batalla Lepanto 10, Ponferrada - Activo Bancario">
+    <meta property="twitter:image" content="batalla-lepanto-exterior.jpg">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Structured Data (JSON-LD) for RealEstateListing -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Accommodation",
+      "name": "Piso en Batalla Lepanto 10, Ponferrada",
+      "description": "Vivienda de 103m² en pleno Ponferrada. Oportunidad de inversión por cesión de remate.",
+      "image": ["batalla-lepanto-exterior.jpg"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Batalla Lepanto 10",
+        "addressLocality": "Ponferrada",
+        "addressRegion": "León",
+        "postalCode": "24402",
+        "addressCountry": "ES"
+      },
+      "numberOfRooms": "Var",
+      "floorSize": {
+        "@type": "QuantitativeValue",
+        "value": 103,
+        "unitCode": "MTK"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": 50000,
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+    <style>
+        :root {
+            --primary-dark: #001f42;
+            --accent-red: #dc2626;
+            --bg-soft: #f8fafc;
+            --border-color: #eaeef4;
+        }
+
+        body {
+            background-color: #fff;
+            color: #1e293b;
+            font-size: 15px;
+        }
+
+        .main-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 32px 20px;
+        }
+
+        .detail-header {
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 24px;
+        }
+
+        .badge-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .badge-item {
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .badge-altamira {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+        }
+
+        .badge-remate {
+            background: #fee2e2;
+            color: var(--accent-red);
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 40px;
+        }
+
+        .image-container {
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+            aspect-ratio: 16 / 10;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .price-card-pro {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            position: sticky;
+            top: 100px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-grid-pro {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .feature-box {
+            padding: 16px;
+            background: var(--bg-soft);
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #f1f5f9;
+        }
+
+        .feature-box i {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .feature-box .val {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .feature-box .lbl {
+            font-size: 0.7rem;
+            color: #64748b;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .btn-primary-pro {
+            width: 100%;
+            padding: 14px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .btn-primary-pro:hover {
+            background: var(--primary-dark);
+        }
+
+        .trust-list {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-bottom: 12px;
+        }
+
+        .trust-item i {
+            color: #10b981;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 900px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .price-card-pro {
+                position: static;
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Navigation -->
+    <nav class="navbar" style="border-bottom: 1px solid var(--border-color); height: 60px;">
+        <div class="container flex items-center justify-between" style="height: 100%;">
+            <a href="index.html" class="brand-wrapper">
+                <div class="brand-icon" style="width: 32px; height: 32px; font-size: 0.9rem;">
+                    <i class="fa-solid fa-building-columns"></i>
+                </div>
+                <div class="brand-text" style="font-size: 1.1rem;">
+                    INMO<span>BANK</span>
+                </div>
+            </a>
+            <a href="index.html"
+                style="font-size: 0.85rem; font-weight: 600; color: #64748b; text-decoration: none; display: flex; align-items: center; gap: 6px;">
+                <i class="fa-solid fa-arrow-left"></i> Volver al listado
+            </a>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <!-- Breadcrumb & Minimalist Header -->
+        <div class="detail-header">
+            <div
+                style="margin-bottom: 12px; font-size: 0.75rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
+                INICIO / LEÓN / <span style="color: var(--primary);">PONFERRADA</span>
+            </div>
+
+            <div class="badge-row">
+                <a href="https://www.altamirainmuebles.com/venta-de-piso/leon/ponferrada/segunda-mano/9206_0124_PE0001/374613/1"
+                    target="_blank" class="badge-item badge-altamira" style="text-decoration: none; cursor: pointer;">
+                    Altamira <i class="fa-solid fa-arrow-up-right-from-square"
+                        style="font-size: 0.6rem; margin-left: 4px;"></i>
+                </a>
+                <div class="badge-item badge-remate">Cesión de Remate</div>
+            </div>
+
+            <h1
+                style="font-size: 2rem; font-weight: 800; color: var(--secondary); margin-bottom: 8px; line-height: 1.2;">
+                Piso en venta en Batalla Lepanto, Nº10
+            </h1>
+            <p style="font-size: 1rem; color: #64748b; display: flex; align-items: center; gap: 6px;">
+                <i class="fa-solid fa-map-marker-alt" style="color: var(--primary);"></i> Ponferrada, León (24402)
+            </p>
+        </div>
+
+        <div class="grid-layout">
+            <!-- Left: Content -->
+            <div>
+                <div class="image-container">
+                    <img src="batalla-lepanto-exterior.jpg" alt="Piso Batalla Lepanto">
+                </div>
+
+                <div class="feature-grid-pro">
+                    <div class="feature-box">
+                        <i class="fa-solid fa-maximize"></i>
+                        <div class="val">103 m²</div>
+                        <div class="lbl">Superficie</div>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fa-solid fa-bed"></i>
+                        <div class="val">Var</div>
+                        <div class="lbl">Habst</div>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fa-solid fa-bath"></i>
+                        <div class="val">Var</div>
+                        <div class="lbl">Baños</div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 40px;">
+                    <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 16px;">Acerca de este activo</h2>
+                    <p style="line-height: 1.6; color: #475569; margin-bottom: 16px;">
+                        Piso situado en la localidad de Ponferrada, provincia de León. Tiene una superficie de 103 m2
+                        construidos.
+                        Este activo se comercializa mediante <strong>Cesión de Remate</strong>, en el marco del proceso
+                        de Subasta Judicial en el que se encuentra actualmente.
+                    </p>
+                    <p style="line-height: 1.6; color: #475569;">
+                        No existe la posibilidad de compraventa directa. El precio publicado es una orientación al
+                        precio de puja mínimo. Toda la información es pública en el BOE.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 16px;">Ubicación estratégica</h2>
+                    <div style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color);">
+                        <img src="batalla-lepanto-mapa.png" alt="Ubicación Mapa" style="width: 100%; display: block;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Sticky Sidebar -->
+            <div class="sidebar">
+                <div class="price-card-pro">
+                    <div style="margin-bottom: 20px;">
+                        <div style="display: flex; align-items: baseline; gap: 8px;">
+                            <span style="font-size: 2.2rem; font-weight: 800; color: var(--secondary);">50.000 €</span>
+                        </div>
+                    </div>
+                    <button onclick="document.getElementById('contactModal').style.display='flex'"
+                        class="btn-primary-pro" style="margin-bottom: 12px;">
+                        <i class="fa-solid fa-paper-plane"></i> Solicitar Dossier
+                    </button>
+
+                    <a href="https://www.altamirainmuebles.com/venta-de-piso/leon/ponferrada/segunda-mano/9206_0124_PE0001/374613/1"
+                        target="_blank"
+                        style="width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-weight: 600; font-size: 0.85rem; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s;">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver en Altamira
+                    </a>
+
+                    <div class="trust-list">
+                        <div class="trust-item">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>Activo Verificado (Altamira)</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>Sin Honorarios de Agencia</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>Gestión Directa Bancaria</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 20px; font-size: 0.7rem; color: #cbd5e1; text-align: center;">
+                        REF: 9206_0124_PE0001
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal refined -->
+    <div id="contactModal"
+        style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 2000; align-items: center; justify-content: center; padding: 20px;">
+        <div
+            style="background: white; width: 100%; max-width: 400px; border-radius: 12px; padding: 32px; position: relative;">
+            <button onclick="document.getElementById('contactModal').style.display='none'"
+                style="position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #94a3b8;">&times;</button>
+
+            <div style="text-align: center; margin-bottom: 24px;">
+                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--secondary);">Información del Activo</h3>
+                <p style="font-size: 0.85rem; color: #64748b; margin-top: 4px;">Completa el formulario para recibir el
+                    dossier técnico.</p>
+            </div>
+
+            <form id="leadForm">
+                <input type="text" placeholder="Nombre completo"
+                    style="width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 6px; margin-bottom: 12px;"
+                    required>
+                <input type="tel" placeholder="Teléfono"
+                    style="width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 6px; margin-bottom: 12px;"
+                    required>
+                <input type="email" placeholder="Email"
+                    style="width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 6px; margin-bottom: 20px;"
+                    required>
+                <button type="submit" class="btn-primary-pro">Solicitar Información</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Profesional Unified -->
+    <footer class="pro-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Columna 1: Marca -->
+                <div>
+                    <div class="footer-brand-logo">
+                        <div class="footer-brand-icon">
+                            <i class="fa-solid fa-building-columns"></i>
+                        </div>
+                        <div class="footer-brand-text">
+                            INMO<span>BANK</span>
+                        </div>
+                    </div>
+                    <p class="footer-desc">
+                        Central de Activos Inmobiliarios Bancarios. Acceso directo a las carteras de los principales
+                        bancos de España. Proporcionamos transparencia y agilidad en adquisiciones estratégicas.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Enlaces Legales -->
+                <div>
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="aviso-legal.html">Aviso Legal</a></li>
+                        <li><a href="privacidad.html">Privacidad</a></li>
+                        <li><a href="cookies.html">Cookies</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Contacto -->
+                <div>
+                    <h4 class="footer-title">Contacto</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@inmobank.com"><i class="fa-solid fa-envelope"
+                                    style="margin-right: 8px;"></i> info@inmobank.com</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-copyright">
+                <p>© 2025 INMOBANK Central de Activos Bancarios. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('leadForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('¡Solicitud recibida! Te enviaremos el dossier en breve.');
+            document.getElementById('contactModal').style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>
