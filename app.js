@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <a href="${item.link}" ${target} style="position: absolute; inset: 0; z-index: 1;"></a>
                     <div class="card-image-wrapper">
                         <img src="${item.img}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/400?text=Piso+Banco'">
-                        <a href="https://www.altamirainmuebles.com/detalles-del-activo?referencia=9212_0163_PE0001" target="_blank" class="bank-tag ${item.bankClass}" onclick="event.stopPropagation();" style="z-index: 10; text-decoration: none;">
+                        <a href="https://www.altamirainmuebles.com/venta-de-piso/madrid/madrid/segunda-mano/9212_0163_PE0001/374628/1" target="_blank" class="bank-tag ${item.bankClass}" onclick="event.stopPropagation();" style="z-index: 10; text-decoration: none;">
                             ${item.bank} <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.5rem; margin-left: 2px;"></i>
                         </a>
                         ${item.tags.length > 0 ? `<div class="status-badge">${item.tags[0]}</div>` : ''}
@@ -182,9 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <div class="price-label">Desde</div>
                                 <div>
                                     <span class="current-price">${item.price.toLocaleString()} €</span>
-                                    <span class="discount-tag">-${discount}%</span>
                                 </div>
-                                <span class="old-price">Antes: ${item.oldPrice.toLocaleString()} €</span>
                             </div>
                             
                             <div class="btn-cta">
