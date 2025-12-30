@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
             features: ['102', '4', '2'],
             tags: ['Santander', 'Cesión Remate'],
             img: 'https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=600',
-            // Enlace especial para abrir modal
-            link: '#modal-amor-hermoso',
+            // Enlace a la ficha completa
+            link: 'propiedad-amor-hermoso.html',
             type: 'vivienda'
         },
 
@@ -332,8 +332,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     `<button class="btn-cta open-modal-btn" data-id="${item.id}" style="cursor:pointer; border:none;">
                                 Me interesa <i class="fa-solid fa-envelope"></i>
                              </button>`
-                    :
-                    `<a href="${item.link}" target="_blank" class="btn-cta">
+                    : item.link.endsWith('.html') ?
+                        `<a href="${item.link}" class="btn-cta">
+                                Ver Detalles <i class="fa-solid fa-arrow-right"></i>
+                             </a>`
+                        :
+                        `<a href="${item.link}" target="_blank" class="btn-cta">
                                 Ver Ficha Oficial <i class="fa-solid fa-arrow-up-right-from-square"></i>
                              </a>`
                 }
