@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <a href="${item.link}" ${target} style="position: absolute; inset: 0; z-index: 1;"></a>
                     <div class="card-image-wrapper">
                         <img src="${item.img}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/400?text=Piso+Banco'">
-                        <a href="https://www.altamirainmuebles.com/" target="_blank" class="bank-tag ${item.bankClass}" onclick="event.stopPropagation();" style="z-index: 10; text-decoration: none;">
+                        <a href="https://www.altamirainmuebles.com/detalles-del-activo?referencia=9212_0163_PE0001" target="_blank" class="bank-tag ${item.bankClass}" onclick="event.stopPropagation();" style="z-index: 10; text-decoration: none;">
                             ${item.bank} <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.5rem; margin-left: 2px;"></i>
                         </a>
                         ${item.tags.length > 0 ? `<div class="status-badge">${item.tags[0]}</div>` : ''}
