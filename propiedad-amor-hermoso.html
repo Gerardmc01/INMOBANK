@@ -281,8 +281,19 @@
         <div class="grid-layout">
             <!-- Left: Content -->
             <div>
-                <div class="image-container">
-                    <img src="amor-hermoso-exterior.jpg" alt="Piso Amor Hermoso">
+                <!-- Professional Gallery -->
+                <div class="pro-gallery">
+                    <div class="main-image-wrap">
+                        <img id="mainGalleryImage" src="amor-hermoso-exterior.jpg" alt="Piso Amor Hermoso">
+                    </div>
+                    <div class="thumb-row">
+                        <div class="thumb-item active" onclick="changeGalleryImage('amor-hermoso-exterior.jpg', this)">
+                            <img src="amor-hermoso-exterior.jpg" alt="Exterior">
+                        </div>
+                        <div class="thumb-item" onclick="changeGalleryImage('amor-hermoso-mapa.jpg', this)">
+                            <img src="amor-hermoso-mapa.jpg" alt="Mapa">
+                        </div>
+                    </div>
                 </div>
 
                 <div class="feature-grid-pro">
@@ -316,12 +327,7 @@
                     </p>
                 </div>
 
-                <div>
-                    <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 16px;">Ubicación estratégica</h2>
-                    <div style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color);">
-                        <img src="amor-hermoso-mapa.jpg" alt="Ubicación Mapa" style="width: 100%; display: block;">
-                    </div>
-                </div>
+
             </div>
 
             <!-- Right: Sticky Sidebar -->
@@ -443,6 +449,12 @@
     </footer>
 
     <script>
+        function changeGalleryImage(src, thumb) {
+            document.getElementById('mainGalleryImage').src = src;
+            document.querySelectorAll('.thumb-item').forEach(item => item.classList.remove('active'));
+            thumb.classList.add('active');
+        }
+
         document.getElementById('leadForm').addEventListener('submit', (e) => {
             e.preventDefault();
             alert('¡Solicitud recibida! Te enviaremos el dossier en breve.');

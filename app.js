@@ -213,20 +213,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- EVENT LISTENERS ---
 
-    searchBtn.addEventListener('click', () => {
-        grid.classList.add('hidden');
+    searchBtn.addEventListener('click', triggerSearch);
+
+    // Búsqueda inteligente: Actualizar al cambiar cualquier filtro
+    [locationInput, priceInput, typeInput].forEach(el => {
+        el.addEventListener('change', triggerSearch);
+    });
+
+    function triggerSearch() {
+        grid.style.opacity = "0.3";
         skeleton.classList.remove('hidden');
 
         setTimeout(() => {
             skeleton.classList.add('hidden');
-            grid.classList.remove('hidden');
+            grid.style.opacity = "1";
             applyFilters();
 
             if (locationInput.value) locationDisplay.innerText = locationInput.value;
             else locationDisplay.innerText = "España";
 
-        }, 500);
-    });
+        }, 300); // Reducido para que se sienta más rápido
+    }
 
     document.querySelectorAll('.filters-sidebar input[type="checkbox"]').forEach(box => {
         box.addEventListener('change', makeFiltersDebounced);

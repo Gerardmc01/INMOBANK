@@ -281,8 +281,26 @@
         <div class="grid-layout">
             <!-- Left: Content -->
             <div>
-                <div class="image-container">
-                    <img src="batalla-lepanto-exterior.jpg" alt="Piso Batalla Lepanto">
+                <!-- Professional Gallery -->
+                <div class="pro-gallery">
+                    <div class="main-image-wrap">
+                        <img id="mainGalleryImage" src="batalla-lepanto-exterior.jpg" alt="Piso Batalla Lepanto">
+                    </div>
+                    <div class="thumb-row">
+                        <div class="thumb-item active"
+                            onclick="changeGalleryImage('batalla-lepanto-exterior.jpg', this)">
+                            <img src="batalla-lepanto-exterior.jpg" alt="Exterior">
+                        </div>
+                        <div class="thumb-item" onclick="changeGalleryImage('batalla-lepanto-calle.jpg', this)">
+                            <img src="batalla-lepanto-calle.jpg" alt="Calle">
+                        </div>
+                        <div class="thumb-item" onclick="changeGalleryImage('batalla-lepanto-satelite.jpg', this)">
+                            <img src="batalla-lepanto-satelite.jpg" alt="Satélite">
+                        </div>
+                        <div class="thumb-item" onclick="changeGalleryImage('batalla-lepanto-mapa.png', this)">
+                            <img src="batalla-lepanto-mapa.png" alt="Mapa">
+                        </div>
+                    </div>
                 </div>
 
                 <div class="feature-grid-pro">
@@ -444,6 +462,12 @@
     </footer>
 
     <script>
+        function changeGalleryImage(src, thumb) {
+            document.getElementById('mainGalleryImage').src = src;
+            document.querySelectorAll('.thumb-item').forEach(item => item.classList.remove('active'));
+            thumb.classList.add('active');
+        }
+
         document.getElementById('leadForm').addEventListener('submit', (e) => {
             e.preventDefault();
             alert('¡Solicitud recibida! Te enviaremos el dossier en breve.');
