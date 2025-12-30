@@ -15,17 +15,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- CONFIGURACIÓN DE FIREBASE ---
     // SUSTITUYE ESTOS DATOS CON LOS DE TU PROYECTO FIREBASE
     const firebaseConfig = {
-        apiKey: "PEGA_AQUÍ_TU_API_KEY",
+        apiKey: "AIzaSyCEznc3N5JQifcsjIRWYmOJxVQevI12eNQ",
         authDomain: "inmobank-86668.firebaseapp.com",
         projectId: "inmobank-86668",
-        storageBucket: "inmobank-86668.appspot.com",
-        messagingSenderId: "123456789",
-        appId: "1:123456789:web:abcdef"
+        storageBucket: "inmobank-86668.firebasestorage.app",
+        messagingSenderId: "344899398754",
+        appId: "1:344899398754:web:8cbc328ce885c97cacf53b",
+        measurementId: "G-Q6YPQ92DXZ"
     };
 
     // Inicializar Firebase solo si la config está rellena
     let db = null;
-    if (firebaseConfig.apiKey && !firebaseConfig.apiKey.startsWith("AIzaSy...")) {
+    if (firebaseConfig.apiKey && firebaseConfig.apiKey !== "PEGA_AQUÍ_TU_API_KEY") {
         firebase.initializeApp(firebaseConfig);
         db = firebase.firestore();
     }
