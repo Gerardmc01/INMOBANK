@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
             oldPrice: 285000,
             features: ['102', '4', '2'],
             tags: ['Santander', 'Cesión Remate'],
-            img: 'https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=600',
+            img: 'amor-hermoso-exterior.jpg',
             // Enlace a la ficha completa
             link: 'propiedad-amor-hermoso.html',
             type: 'vivienda'
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const target = isInternal ? '' : 'target="_blank"';
 
             card.innerHTML = `
-                <a href="${item.link}" ${target} style="text-decoration: none; color: inherit; display: block; height: 100%;">
+                <a href="${item.link}" ${target} style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%;">
                     <div class="card-image-wrapper">
                         <img src="${item.img}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/400?text=Piso+Banco'">
                         <div class="bank-tag ${item.bankClass}">${item.bank}</div>
