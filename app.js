@@ -12,6 +12,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const skeleton = document.getElementById('skeletonLoader');
     const loadMoreBtn = document.getElementById('loadMoreBtn');
 
+    // --- CONFIGURACIÓN DE FIREBASE ---
+    // SUSTITUYE ESTOS DATOS CON LOS DE TU PROYECTO FIREBASE
+    const firebaseConfig = {
+        apiKey: "AIzaSy...",
+        authDomain: "inmobank-abcde.firebaseapp.com",
+        projectId: "inmobank-abcde",
+        storageBucket: "inmobank-abcde.appspot.com",
+        messagingSenderId: "123456789",
+        appId: "1:123456789:web:abcdef"
+    };
+
+    // Inicializar Firebase solo si la config está rellena
+    let db = null;
+    if (firebaseConfig.apiKey && !firebaseConfig.apiKey.startsWith("AIzaSy...")) {
+        firebase.initializeApp(firebaseConfig);
+        db = firebase.firestore();
+    }
+
     // --- BASE DE DATOS MASIVA (AGREGADOR COMPLETO) ---
     // Incluye todos los servicers principales de España.
 
@@ -31,179 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
             img: 'https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=600',
             // Enlace a la ficha completa
             link: 'propiedad-amor-hermoso.html',
-            type: 'vivienda'
-        },
-
-        // --- GRUPO SANTANDER ---
-        {
-            id: 'altamira-general',
-            bank: 'Altamira',
-            bankClass: 'altamira',
-            title: 'Buscador General Altamira (Santander)',
-            desc: 'Todo el portal inmobiliario del Banco Santander. Viviendas, locales y suelos en toda España.',
-            location: 'Toda España',
-            price: 85000,
-            oldPrice: 110000,
-            features: ['Var', 'Var', 'Var'],
-            tags: ['Santander', 'Catálogo Completo'],
-            img: 'https://images.unsplash.com/photo-1460317442991-0ec1dacd853e?w=600',
-            link: 'https://www.altamirainmuebles.com/venta-viviendas/cualquier-provincia',
-            type: 'vivienda'
-        },
-        {
-            id: 'aliseda-general',
-            bank: 'Aliseda',
-            bankClass: 'aliseda',
-            title: 'Aliseda Inmobiliaria (Santander/Popular)',
-            desc: 'Gestora de activos del Banco Popular/Santander. Grandes oportunidades en costa y segunda residencia.',
-            location: 'Toda España',
-            price: 75000,
-            oldPrice: 95000,
-            features: ['Var', 'Var', 'Var'],
-            tags: ['Santander', 'Popular'],
-            img: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600',
-            link: 'https://www.alisedainmobiliaria.com/',
-            type: 'vivienda'
-        },
-        {
-            id: 'casaktua-general',
-            bank: 'Casaktua',
-            bankClass: 'casaktua',
-            title: 'Casaktua (Intrum)',
-            desc: 'Portal con financiación accesible. Ideal para compradores de primera vivienda con presupuesto ajustado.',
-            location: 'Toda España',
-            price: 60000,
-            oldPrice: 80000,
-            features: ['Var', 'Var', 'Var'],
-            tags: ['Financiación', 'Low Cost'],
-            img: 'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=600',
-            link: 'https://www.casaktua.com/',
-            type: 'vivienda'
-        },
-
-        // --- BBVA / CAIXA / SABADELL ---
-        {
-            id: 'bbva-solvia',
-            bank: 'BBVA Vivienda',
-            bankClass: 'bbva',
-            title: 'Portal Inmobiliario BBVA',
-            desc: 'Gestionado por Solvia. Accede a la cartera exclusiva de inmuebles propiedad del BBVA.',
-            location: 'Toda España',
-            price: 95000,
-            oldPrice: 130000,
-            features: ['Var', 'Var', 'Var'],
-            tags: ['BBVA', 'Calidad'],
-            img: 'https://images.unsplash.com/photo-1484154218962-a1c002085d2f?w=600',
-            link: 'https://www.solvia.es/es/comprar/bbva',
-            type: 'vivienda'
-        },
-        {
-            id: 'servihabitat-general',
-            bank: 'Servihabitat',
-            bankClass: 'servihabitat',
-            title: 'Servihabitat (CaixaBank / Coral Homes)',
-            desc: 'La mayor cartera de España. Pisos, casas y promociones de obra nueva de La Caixa.',
-            location: 'Toda España',
-            price: 88000,
-            oldPrice: 115000,
-            features: ['Var', 'Var', 'Var'],
-            tags: ['CaixaBank', 'Líder Mercado'],
-            img: 'https://images.unsplash.com/photo-1592595896551-12b371d546d5?w=600',
-            link: 'https://www.servihabitat.com/es/land/residencial/venta/vivienda',
-            type: 'vivienda'
-        },
-        {
-            id: 'solvia-general',
-            bank: 'Solvia',
-            bankClass: 'solvia',
-            title: 'Solvia Inmobiliaria (Sabadell)',
-            desc: 'Referente en el sector. Asesoramiento personal y activos del Banco Sabadell y SAREB.',
-            location: 'Toda España',
-            price: 65000,
-            oldPrice: 80000,
-            features: ['Var', 'Var', 'Var'],
-            tags: ['Sabadell', 'Servicio Premium'],
-            img: 'https://images.unsplash.com/photo-1448630360428-65456885c650?w=600',
-            link: 'https://www.solvia.es/es/comprar/viviendas',
-            type: 'vivienda'
-        },
-
-        // --- OTROS BANCOS Y REGIONALES ---
-        {
-            id: 'haya-general',
-            bank: 'Haya Real Estate',
-            bankClass: 'haya',
-            title: 'Haya Real Estate (Multimarca)',
-            desc: 'Comercializa activos de Cajamar, Liberbank y otros fondos. Muy fuerte en zonas rurales y costa.',
-            location: 'Toda España',
-            price: 55000,
-            oldPrice: 75000,
-            features: ['Var', 'Var', 'Var'],
-            tags: ['Cajamar', 'Rural'],
-            img: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600',
-            link: 'https://www.haya.es/viviendas/',
-            type: 'vivienda'
-        },
-        {
-            id: 'bankinter-general',
-            bank: 'Bankinter',
-            bankClass: 'bankinter',
-            title: 'Bankinter Inmuebles',
-            desc: 'Portal especializado en viviendas de calidad media-alta con financiación propia del banco.',
-            location: 'Toda España',
-            price: 180000,
-            oldPrice: 220000,
-            features: ['Var', 'Var', 'Var'],
-            tags: ['Bankinter', 'Premium'],
-            img: 'https://images.unsplash.com/photo-1600596542815-2a4fe041d95e?w=600',
-            link: 'https://www.bankinter.com/www/es-es/cgi/ebk+inm+home',
-            type: 'vivienda'
-        },
-        {
-            id: 'ibercaja-general',
-            bank: 'Ibercaja',
-            bankClass: 'ibercaja',
-            title: 'Ibercaja Inmuebles',
-            desc: 'Gran presencia en Aragón, La Rioja y Madrid. Condiciones hipotecarias ventajosas.',
-            location: 'Toda España',
-            price: 92000,
-            oldPrice: 110000,
-            features: ['Var', 'Var', 'Var'],
-            tags: ['Ibercaja', 'Aragón/Madrid'],
-            img: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600',
-            link: 'https://www.ibercajainmobiliaria.com/',
-            type: 'vivienda'
-        },
-
-        // --- DESTACADOS REGIONALES (Gancho visual) ---
-        {
-            id: 'alt-bcn-oficial',
-            bank: 'Altamira',
-            bankClass: 'altamira',
-            title: 'Pisos en Barcelona (Santander)',
-            desc: 'Viviendas de obra nueva y segunda mano del Banco Santander en Barcelona.',
-            location: 'Barcelona',
-            price: 145000,
-            oldPrice: 180000,
-            features: ['Var', 2, 1],
-            tags: ['Santander', 'BCN'],
-            img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b91d?w=600',
-            link: 'https://www.altamirainmuebles.com/#/results?l=Barcelona,Barcelona',
-            type: 'vivienda'
-        },
-        {
-            id: 'solvia-ali-oficial',
-            bank: 'Solvia',
-            bankClass: 'solvia',
-            title: 'Pisos en Alicante Costa',
-            desc: 'Tu casa cerca del mar con las mejores condiciones del Banco Sabadell.',
-            location: 'Alicante',
-            price: 85000,
-            oldPrice: 105000,
-            features: [70, 2, 1],
-            tags: ['Sabadell', 'Costa'],
-            img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600',
-            link: 'https://www.solvia.es/es/comprar/viviendas/alicante-provincia',
             type: 'vivienda'
         }
     ];
@@ -259,10 +104,14 @@ document.addEventListener('DOMContentLoaded', () => {
         render(filtered);
     }
 
+    // --- PROPIEDADES ACTIVAS ---
+    let currentProperties = [];
+
     // --- RENDERIZADO ---
     function render(list) {
         grid.innerHTML = '';
         totalCount.innerText = list.length;
+        currentProperties = list;
 
         if (list.length === 0) {
             grid.innerHTML = `
@@ -287,62 +136,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const card = document.createElement('div');
             card.className = 'property-card';
+
+            // Si el link es a una página interna (.html), hacemos toda la caja clickeable
+            const isInternal = item.link.endsWith('.html');
+            const target = isInternal ? '' : 'target="_blank"';
+
             card.innerHTML = `
-                <div class="card-image-wrapper">
-                    <img src="${item.img}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/400?text=Piso+Banco'">
-                    <div class="bank-tag ${item.bankClass}">${item.bank}</div>
-                    ${item.tags.length > 0 ? `<div class="status-badge">${item.tags[0]}</div>` : ''}
-                </div>
-                
-                <div class="card-details">
-                    <div class="card-header">
-                        <div>
-                            <h2 class="card-title">${item.title}</h2>
-                        </div>
-                        <div class="card-actions-top">
-                            <button><i class="fa-regular fa-heart"></i></button>
-                        </div>
+                <a href="${item.link}" ${target} style="text-decoration: none; color: inherit; display: block; height: 100%;">
+                    <div class="card-image-wrapper">
+                        <img src="${item.img}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/400?text=Piso+Banco'">
+                        <div class="bank-tag ${item.bankClass}">${item.bank}</div>
+                        ${item.tags.length > 0 ? `<div class="status-badge">${item.tags[0]}</div>` : ''}
                     </div>
-
-                    <p style="font-size: 0.9rem; color: #4b5563; margin-bottom: 12px; line-height: 1.4;">
-                        ${item.desc}
-                    </p>
-
-                    <div class="card-location-row">
-                        <i class="fa-solid fa-map-pin"></i> ${item.location}
-                    </div>
-
-                    <div class="card-features">
-                        <div class="feature-item"><i class="fa-solid fa-ruler-combined"></i> ${item.features[0] !== 'Var' ? item.features[0] + ' m²' : 'Consultar'}</div>
-                        <div class="feature-item"><i class="fa-solid fa-bed"></i> ${item.features[1] === 'Var' ? '-' : item.features[1]}</div>
-                        <div class="feature-item"><i class="fa-solid fa-bath"></i> ${item.features[2] === 'Var' ? '-' : item.features[2]}</div>
-                    </div>
-
-                    <div class="card-footer">
-                        <div class="price-container">
-                            <div class="price-label">Desde</div>
+                    
+                    <div class="card-details">
+                        <div class="card-header">
                             <div>
-                                <span class="current-price">${item.price.toLocaleString()} €</span>
-                                <span class="discount-tag">-${discount}%</span>
+                                <h2 class="card-title">${item.title}</h2>
                             </div>
-                            <span class="old-price">Antes: ${item.oldPrice.toLocaleString()} €</span>
+                            <div class="card-actions-top">
+                                <button type="button" onclick="event.preventDefault();"><i class="fa-regular fa-heart"></i></button>
+                            </div>
                         </div>
-                        
-                        ${item.link.startsWith('#') ?
-                    `<button class="btn-cta open-modal-btn" data-id="${item.id}" style="cursor:pointer; border:none;">
-                                Me interesa <i class="fa-solid fa-envelope"></i>
-                             </button>`
-                    : item.link.endsWith('.html') ?
-                        `<a href="${item.link}" class="btn-cta">
-                                Ver Detalles <i class="fa-solid fa-arrow-right"></i>
-                             </a>`
-                        :
-                        `<a href="${item.link}" target="_blank" class="btn-cta">
-                                Ver Ficha Oficial <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                             </a>`
-                }
+
+                        <p style="font-size: 0.9rem; color: #4b5563; margin-bottom: 12px; line-height: 1.4;">
+                            ${item.desc}
+                        </p>
+
+                        <div class="card-location-row">
+                            <i class="fa-solid fa-map-pin"></i> ${item.location}
+                        </div>
+
+                        <div class="card-features">
+                            <div class="feature-item"><i class="fa-solid fa-ruler-combined"></i> ${item.features[0] !== 'Var' ? item.features[0] + ' m²' : 'Consultar'}</div>
+                            <div class="feature-item"><i class="fa-solid fa-bed"></i> ${item.features[1] === 'Var' ? '-' : item.features[1]}</div>
+                            <div class="feature-item"><i class="fa-solid fa-bath"></i> ${item.features[2] === 'Var' ? '-' : item.features[2]}</div>
+                        </div>
+
+                        <div class="card-footer">
+                            <div class="price-container">
+                                <div class="price-label">Desde</div>
+                                <div>
+                                    <span class="current-price">${item.price.toLocaleString()} €</span>
+                                    <span class="discount-tag">-${discount}%</span>
+                                </div>
+                                <span class="old-price">Antes: ${item.oldPrice.toLocaleString()} €</span>
+                            </div>
+                            
+                            <div class="btn-cta">
+                                ${isInternal ? 'Ver Detalles' : 'Ver Ficha Oficial'} <i class="fa-solid ${isInternal ? 'fa-arrow-right' : 'fa-arrow-up-right-from-square'}"></i>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </a>
             `;
             grid.appendChild(card);
         });
@@ -443,4 +289,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- INICIALIZACIÓN ---
+    async function init() {
+        let list = DATABASE;
+
+        if (db) {
+            try {
+                const snapshot = await db.collection('properties').get();
+                const fbData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                if (fbData.length > 0) list = fbData;
+            } catch (e) {
+                console.error("Error al cargar de Firebase:", e);
+            }
+        }
+
+        render(list);
+    }
+
+    init();
 });
