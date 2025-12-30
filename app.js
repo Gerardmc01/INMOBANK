@@ -15,10 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- CONFIGURACIÓN DE FIREBASE ---
     // SUSTITUYE ESTOS DATOS CON LOS DE TU PROYECTO FIREBASE
     const firebaseConfig = {
-        apiKey: "AIzaSy...",
-        authDomain: "inmobank-abcde.firebaseapp.com",
-        projectId: "inmobank-abcde",
-        storageBucket: "inmobank-abcde.appspot.com",
+        apiKey: "PEGA_AQUÍ_TU_API_KEY",
+        authDomain: "inmobank-86668.firebaseapp.com",
+        projectId: "inmobank-86668",
+        storageBucket: "inmobank-86668.appspot.com",
         messagingSenderId: "123456789",
         appId: "1:123456789:web:abcdef"
     };

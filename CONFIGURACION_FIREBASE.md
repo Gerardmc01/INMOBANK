@@ -1,55 +1,42 @@
-# Guía de Configuración de Firebase para INMOBANK
+# Guía de Configuración para tu Proyecto inmobank-86668
 
-Sigue estos pasos para conectar tu base de datos y añadir pisos manualmente.
+Sigue estos pasos para que la web empiece a leer tus pisos de Firebase.
 
-## 1. Crear el Proyecto en Firebase
-1. Ve a [Firebase Console](https://console.firebase.google.com/).
-2. Haz clic en **"Añadir proyecto"** y ponle el nombre `inmobank`.
-3. (Opcional) Desactiva Google Analytics si no lo necesitas.
-4. Crea el proyecto.
+## 1. Obtener tu API Key
+1. Abre tu consola: [https://console.firebase.google.com/project/inmobank-86668/overview](https://console.firebase.google.com/project/inmobank-86668/overview)
+2. Haz clic en el icono de **Web (`</>`)** que verás en el centro o en el menú de configuración (la rueda dentada ⚙️ > Configuración del proyecto).
+3. Si ya creaste una app web, verás un objeto llamado `firebaseConfig`.
+4. Copia el valor de **`apiKey`**, **`messagingSenderId`** y **`appId`**.
 
-## 2. Crear la Base de Datos (Firestore)
-1. En el menú de la izquierda, ve a **Build** > **Firestore Database**.
-2. Haz clic en **"Crear base de datos"**.
-3. Elige la ubicación más cercana (ej. `europe-west`).
-4. Selecciona **"Empezar en modo de prueba"** (esto permite escribir/leer datos sin autenticación durante los primeros 30 días, luego deberás poner reglas de seguridad).
-5. Crea una colección llamada `properties`.
-
-## 3. Registrar la Web y Obtener las Credenciales
-1. En la descripción general del proyecto, haz clic en el icono de **Web (`</>`)**.
-2. Ponle un nombre (ej. `web-app`) y haz clic en "Registrar aplicación".
-3. Te aparecerá un código llamado `firebaseConfig`. Copia esos valores.
-
-## 4. Actualizar el código en `app.js`
-Abre el archivo `/springfield-oracle/app.js` y busca la sección `// --- CONFIGURACIÓN DE FIREBASE ---`. Sustituye los valores por los tuyos:
+## 2. Poner los datos en la Web
+Abre el archivo `app.js` en tu editor y rellena estos 3 campos con los datos que acabas de copiar:
 
 ```javascript
 const firebaseConfig = {
-    apiKey: "TU_API_KEY",
-    authDomain: "TU_PROYECTO.firebaseapp.com",
-    projectId: "TU_PROYECTO",
-    storageBucket: "TU_PROYECTO.appspot.com",
-    messagingSenderId: "TU_ID",
+    apiKey: "AQUÍ_TU_API_KEY_REAL", 
+    authDomain: "inmobank-86668.firebaseapp.com",
+    projectId: "inmobank-86668",
+    storageBucket: "inmobank-86668.appspot.com",
+    messagingSenderId: "TU_MESSAGING_SENDER_ID",
     appId: "TU_APP_ID"
 };
 ```
 
-## 5. Estructura de un Piso en Firestore
-Cuando añadas una "Documento" en la colección `properties`, usa estos campos (respetando las mayúsculas/minúsculas):
-
-- **id**: String (ej: `piso-usera-1`)
-- **title**: String (ej: `Piso en Usera...`)
-- **desc**: String (descripción corta)
-- **location**: String (ej: `Madrid`)
-- **bank**: String (ej: `Altamira`)
-- **bankClass**: String (ej: `altamira` - esto pone el color correcto)
-- **price**: Number (ej: `230000`)
-- **oldPrice**: Number (ej: `285000`)
-- **features**: Array (3 elementos: `["102", "4", "2"]` para metros, habs, baños)
-- **tags**: Array (ej: `["Santander", "Ocasión"]`)
-- **img**: String (URL de la imagen de Unsplash o similar)
-- **link**: String (ej: `propiedad-amor-hermoso.html` si creas la ficha, o el link del banco)
-- **type**: String (ej: `vivienda`)
+## 3. Preparar Firebase (Muy importante)
+Para que los datos se vean, tienes que hacer esto en la consola:
+1. Ir a **Firestore Database** > **Reglas**.
+2. Cambia las reglas para que permitan leer sin errores (esto es para desarrollo, luego se puede proteger):
+   ```
+   rules_version = '2';
+   service cloud.firestore {
+     match /databases/{database}/documents {
+       match /{document=**} {
+         allow read, write: if true;
+       }
+     }
+   }
+   ```
+3. Ir a **Firestore Database** > **Datos** y crea la colección `properties`.
 
 ---
-**¡Listo!** En cuanto rellenes la configuración en `app.js`, la web dejará de usar el archivo estático y leerá directamente de tu Firebase.
+**¡Y ya está!** En cuanto guardes `app.js` con tu API Key real y crees la colección en Firebase, la web estará conectada.⚡️
