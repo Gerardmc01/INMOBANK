@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BankChollo | Oportunidades VIP y Cesiones</title>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <nav class="navbar">
+        <div class="container flex items-center justify-between" style="height: 100%;">
+            <a href="#" class="brand">Bank<span>Chollo</span></a>
+
+            <div class="nav-links hidden-mobile flex items-center gap-4">
+                <a href="#">Precios</a>
+                <a href="#" class="btn-login">Hazte Usuario</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Search -->
+    <header class="hero-wrapper">
+        <div class="container">
+            <h1 class="hero-title">Tu vivienda al precio que marcan los bancos.</h1>
+            <p class="hero-subtitle">Rastreamos las carteras de Haya, Altamira, Solvia y Servihabitat para que
+                encuentres tu hogar sin intermediarios.</p>
+
+            <div class="search-container">
+                <div class="search-field location">
+                    <label>¿Dónde buscas?</label>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-location-dot text-light"></i>
+                        <input type="text" id="locationInput" list="spanish-locations"
+                            placeholder="Provincia, Ciudad o Zona..." autocomplete="off">
+                        <datalist id="spanish-locations">
+                            <option value="Toda España">
+                            <option value="Madrid">
+                            <option value="Barcelona">
+                            <option value="Valencia">
+                            <option value="Alicante">
+                            <option value="Málaga">
+                            <option value="Sevilla">
+                            <option value="Zaragoza">
+                            <option value="Murcia">
+                            <option value="Palma de Mallorca">
+                            <option value="Las Palmas">
+                            <option value="Bilbao">
+                            <option value="A Coruña">
+                            <option value="Álava">
+                            <option value="Albacete">
+                            <option value="Almería">
+                            <option value="Asturias">
+                            <option value="Ávila">
+                            <option value="Badajoz">
+                            <option value="Burgos">
+                            <option value="Cáceres">
+                            <option value="Cádiz">
+                            <option value="Cantabria">
+                            <option value="Castellón">
+                            <option value="Ciudad Real">
+                            <option value="Córdoba">
+                            <option value="Cuenca">
+                            <option value="Girona">
+                            <option value="Granada">
+                            <option value="Guadalajara">
+                            <option value="Guipúzcoa">
+                            <option value="Huelva">
+                            <option value="Huesca">
+                            <option value="Jaén">
+                            <option value="La Rioja">
+                            <option value="León">
+                            <option value="Lleida">
+                            <option value="Lugo">
+                            <option value="Navarra">
+                            <option value="Ourense">
+                            <option value="Palencia">
+                            <option value="Pontevedra">
+                            <option value="Salamanca">
+                            <option value="Santa Cruz de Tenerife">
+                            <option value="Segovia">
+                            <option value="Soria">
+                            <option value="Tarragona">
+                            <option value="Teruel">
+                            <option value="Toledo">
+                            <option value="Valladolid">
+                            <option value="Vizcaya">
+                            <option value="Zamora">
+                            <option value="Ceuta">
+                            <option value="Melilla">
+                        </datalist>
+                    </div>
+                </div>
+
+                <div class="search-field">
+                    <label>Precio Máximo</label>
+                    <select id="priceInput">
+                        <option value="100000">Hasta 100.000€</option>
+                        <option value="150000">Hasta 150.000€</option>
+                        <option value="250000" selected>Hasta 250.000€</option>
+                        <option value="99999999">Sin límite</option>
+                    </select>
+                </div>
+
+                <div class="search-field">
+                    <label>Tipo</label>
+                    <select id="typeInput">
+                        <option value="vivienda">Piso / Casa</option>
+                        <option value="chalet">Chalet Indep.</option>
+                    </select>
+                </div>
+
+                <button id="searchBtn" class="btn-main-search">
+                    Buscar
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="results-container">
+
+            <!-- Sidebar Filters -->
+            <aside class="filters-sidebar">
+                <div class="filter-card">
+                    <h3 class="filter-title">Portales Bancarios</h3>
+                    <!-- SANTANDER GROUP -->
+                    <div style="margin-bottom:8px; font-size:0.75rem; color:#999; font-weight:700;">GRUPO SANTANDER
+                    </div>
+                    <div class="filter-row">
+                        <input type="checkbox" checked>
+                        <span>Altamira</span>
+                        <span class="badge-count" style="color: var(--bank-altamira)">•</span>
+                    </div>
+                    <div class="filter-row">
+                        <input type="checkbox" checked>
+                        <span>Aliseda</span>
+                        <span class="badge-count" style="color: var(--bank-aliseda)">•</span>
+                    </div>
+                    <div class="filter-row">
+                        <input type="checkbox" checked>
+                        <span>Casaktua</span>
+                        <span class="badge-count" style="color: var(--bank-casaktua)">•</span>
+                    </div>
+
+                    <!-- BBVA & SABADELL & CAIXA -->
+                    <div style="margin-bottom:8px; margin-top:12px; font-size:0.75rem; color:#999; font-weight:700;">
+                        BBVA / CAIXA / SABADELL</div>
+                    <div class="filter-row">
+                        <input type="checkbox" checked>
+                        <span>BBVA Vivienda</span>
+                        <span class="badge-count" style="color: var(--bank-bbva)">•</span>
+                    </div>
+                    <div class="filter-row">
+                        <input type="checkbox" checked>
+                        <span>Servihabitat</span>
+                        <span class="badge-count" style="color: var(--bank-servi)">•</span>
+                    </div>
+                    <div class="filter-row">
+                        <input type="checkbox" checked>
+                        <span>Solvia</span>
+                        <span class="badge-count" style="color: var(--bank-solvia)">•</span>
+                    </div>
+
+                    <!-- OTROS -->
+                    <div style="margin-bottom:8px; margin-top:12px; font-size:0.75rem; color:#999; font-weight:700;">
+                        OTROS BANCOS</div>
+                    <div class="filter-row">
+                        <input type="checkbox" checked>
+                        <span>Haya RE</span>
+                        <span class="badge-count" style="color: var(--bank-haya)">•</span>
+                    </div>
+                    <div class="filter-row">
+                        <input type="checkbox" checked>
+                        <span>Bankinter</span>
+                        <span class="badge-count" style="color: var(--bank-bankinter)">•</span>
+                    </div>
+                    <div class="filter-row">
+                        <input type="checkbox" checked>
+                        <span>Ibercaja</span>
+                        <span class="badge-count" style="color: var(--bank-ibercaja)">•</span>
+                    </div>
+                </div>
+
+                <!-- Promo Widget -->
+                <div
+                    style="background: #f0f9ff; color: #0369a1; padding: 20px; border-radius: 12px; border: 1px solid #bae6fd;">
+                    <i class="fa-solid fa-bell" style="font-size: 1.5rem; margin-bottom: 10px;"></i>
+                    <h4 style="font-weight: 700; margin-bottom: 6px; font-size: 0.95rem;">Alertas de Bajada</h4>
+                    <p style="font-size: 0.85rem; opacity: 0.9; margin-bottom: 15px;">Te avisamos al instante cuando un
+                        piso de tu zona baje de precio.</p>
+                    <button
+                        style="width: 100%; padding: 8px; background: #0284c7; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer;">Activar
+                        Alertas</button>
+                </div>
+            </aside>
+
+            <!-- Results Feed -->
+            <div class="feed-area">
+                <div class="feed-controls">
+                    <div class="results-count">Encontradas <strong id="totalCount">0</strong> oportunidades en <span
+                            id="locationDisplay">...</span></div>
+                    <div class="flex gap-2">
+                        <select
+                            style="padding: 6px 12px; border: 1px solid #e5e7eb; border-radius: 6px; font-size: 0.9rem;">
+                            <option>Relevancia</option>
+                            <option>Precio: Menor a Mayor</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Skeleton Loader -->
+                <div id="skeletonLoader" class="hidden">
+                    <div class="skeleton-card">
+                        <div class="skeleton skeleton-img"></div>
+                        <div class="skeleton-content">
+                            <div class="skeleton skeleton-line"></div>
+                            <div class="skeleton skeleton-line short"></div>
+                            <div class="skeleton skeleton-line short" style="margin-top: auto;"></div>
+                        </div>
+                    </div>
+                    <div class="skeleton-card">
+                        <div class="skeleton skeleton-img"></div>
+                        <div class="skeleton-content">
+                            <div class="skeleton skeleton-line"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Real Grid -->
+                <div id="propertyGrid">
+                    <!-- JS Injected Properties -->
+                </div>
+
+                <button id="loadMoreBtn"
+                    style="width: 100%; padding: 16px; background: white; border: 1px solid #e5e7eb; border-radius: 8px; font-weight: 600; cursor: pointer; color: var(--text-light); transition: all 0.2s;">
+                    Explorar más zonas
+                </button>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
