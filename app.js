@@ -143,10 +143,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const target = isInternal ? '' : 'target="_blank"';
 
             card.innerHTML = `
-                <a href="${item.link}" ${target} style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%;">
+                <div style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%; position: relative;">
+                    <a href="${item.link}" ${target} style="position: absolute; inset: 0; z-index: 1;"></a>
                     <div class="card-image-wrapper">
                         <img src="${item.img}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/400?text=Piso+Banco'">
-                        <div class="bank-tag ${item.bankClass}">${item.bank}</div>
+                        <a href="https://www.altamirainmuebles.com/" target="_blank" class="bank-tag ${item.bankClass}" onclick="event.stopPropagation();" style="z-index: 10; text-decoration: none;">
+                            ${item.bank} <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.5rem; margin-left: 2px;"></i>
+                        </a>
                         ${item.tags.length > 0 ? `<div class="status-badge">${item.tags[0]}</div>` : ''}
                     </div>
                     
@@ -189,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                         </div>
                     </div>
-                </a>
+                </div>
             `;
             grid.appendChild(card);
         });
