@@ -27,7 +27,27 @@
   </url>
   <url>
     <loc>https://inmobank.com/cookies.html</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <priority>0.10</priority>
+  </url>
+  <url>
+    <loc>https://inmobank.com/blog.html</loc>
+    <lastmod>2026-01-17</lastmod>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://inmobank.com/blog-guia-cesion-remate.html</loc>
+    <lastmod>2026-01-17</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://inmobank.com/blog-comprar-pisos-bancos.html</loc>
+    <lastmod>2026-01-17</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://inmobank.com/blog-subastas-boe.html</loc>
+    <lastmod>2026-01-17</lastmod>
+    <priority>0.80</priority>
   </url>
 </urlset>
